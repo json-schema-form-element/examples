@@ -1,0 +1,13 @@
+plugins: ['prettier-plugin-astro']
+
+useTabs: true
+singleQuote: true
+overrides:
+  - files: '*.astro'
+    options:
+      semi: true
+      parser: 'astro'
+      printWidth: 80
+  - files: ['*.json', '*.yaml']
+    options:
+      useTabs: false

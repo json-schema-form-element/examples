@@ -1,0 +1,89 @@
+---
+import VanillaJs from '../components/VanillaJs.astro';
+import SolidJs from '../components/SolidJs.tsx';
+import VueJs from '../components/VueJs.vue';
+import LitJs from '../components/LitJs.ts';
+// import ReactJs from '../components/ReactJs.tsx';
+// import SvelteJs from '../components/SvelteJs.tsx';
+---
+
+<html lang="en" class="sl-theme-dark">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body>
+		<h1>JSON Schema Form Element - Implementations</h1>
+
+		<main>
+			<section>
+				<h2>Vanilla JS</h2>
+				<VanillaJs />
+			</section>
+
+			<section>
+				<h2>Solid</h2>
+				<SolidJs client:only="solid-js" />
+			</section>
+
+			<section>
+				<h2>Vue</h2>
+				<VueJs client:only="vue" />
+			</section>
+
+			<section>
+				<h2>Lit</h2>
+				<LitJs client:only="lit" />
+			</section>
+
+			<!-- <section>
+				<h2>React</h2>
+				<ReactJs client:only="react" />
+			</section> -->
+
+			<!-- <section>
+				<h2>Svelte</h2>
+				<SvelteJs client:only="svelte" />
+			</section> -->
+		</main>
+	</body>
+</html>
+
+<style>
+	@import '@shoelace-style/shoelace/dist/themes/light.css';
+	@import '@shoelace-style/shoelace/dist/themes/dark.css';
+
+	html {
+		box-sizing: border-box;
+	}
+
+	*,
+	*::before,
+	*::after {
+		box-sizing: inherit;
+		color-scheme: dark;
+	}
+
+	body {
+		font: 16px var(--sl-font-sans);
+		font-weight: var(--sl-font-weight-normal);
+		line-height: var(--sl-line-height-normal);
+		color: var(--sl-color-neutral-900);
+		background-color: var(--docs-background-color);
+		-moz-osx-font-smoothing: grayscale;
+		-webkit-font-smoothing: antialiased;
+
+		padding: 2rem;
+	}
+
+	h1 {
+		margin-bottom: 8rem;
+	}
+
+	section {
+		margin: 4rem;
+	}
+</style>
