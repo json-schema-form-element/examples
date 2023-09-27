@@ -17,13 +17,15 @@ export const mySchema = {
 		},
 	},
 } as const satisfies JSONSchema7;
-export type myData = FromSchema<typeof mySchema>;
+export type MyData = FromSchema<typeof mySchema>;
 
 // -----------------------------------------------------------------------------
 
 @customElement('lit-js')
 export default class LitJs extends LitElement {
-	@state() protected _dataInLit = {};
+	@state() private _dataInLit: MyData = {
+		foo: 'hello',
+	};
 
 	override render() {
 		return html`
@@ -35,14 +37,13 @@ export default class LitJs extends LitElement {
 						'ui:widget': 'switch',
 					},
 				}}
-				.data=${{
-					foo: 'hello',
-				}}
-				.onDataChange=${(newData: myData) => {
+				.data=${this._dataInLit}
+				.onDataChange=${(newData: MyData) => {
 					this._dataInLit = newData;
+					console.log({ 'Data from Lit': newData });
 				}}
-				.onFormSubmit=${(newData: myData, valid: boolean) => {
-					console.info(newData, valid);
+				.onFormSubmit=${(newData: MyData, valid: boolean) => {
+					console.log({ 'Submitted!': newData, valid });
 				}}
 			></json-schema-form>
 

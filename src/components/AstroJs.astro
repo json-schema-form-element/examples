@@ -12,21 +12,25 @@ const mySchema = {
 		},
 	},
 } as const satisfies JSONSchema7;
-type myData = FromSchema<typeof mySchema>;
+type MyData = FromSchema<typeof mySchema>;
+
+const dataInAstro: MyData = {
+	foo: 'hello',
+};
+
+const uiSchema: UiSchema = {
+	bar: {
+		'ui:widget': 'switch',
+	},
+};
 ---
 
 <article id="astro">
 	<!-- You can set settings upfront from SSR -->
 	<json-schema-form
 		schema={JSON.stringify(mySchema)}
-		uiSchema={{
-			bar: {
-				'ui:widget': 'switch',
-			},
-		} satisfies UiSchema}
-		data={{
-			foo: 'hello',
-		} satisfies myData}
+		uiSchema={JSON.stringify(uiSchema)}
+		data={dataInAstro}
 	>
 	</json-schema-form>
 
@@ -34,5 +38,6 @@ type myData = FromSchema<typeof mySchema>;
 </article>
 
 <script>
+	// Client only
 	import './TypeScriptOnly.js';
 </script>

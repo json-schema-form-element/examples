@@ -1,14 +1,8 @@
 # 📝  JSON Schema Form Element - Examples
 
-```sh
-src/components
-├── LitJs.ts
-├── SolidJs.tsx
-├── VanillaJs.astro
-└── VueJs.vue
-```
+Sandbox:
 
-![Preview](https://ik.imagekit.io/jc0/jsfe/jsfe-examples_wDwd3aC4c.gif)
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/json-schema-form-element/examples)
 
 ## Quick start
 
@@ -20,6 +14,19 @@ cd jsfe-examples
 npm i
 npm run dev
 ```
+
+![Preview](https://ik.imagekit.io/jc0/jsfe/jsfe-examples_wDwd3aC4c.gif)
+
+[See all component implementations](./src/components) for:
+
+- TypeScript (no UI framework)
+- Solid
+- Lit
+- Vue
+- Astro (SSR)
+
+<!-- - React -->
+<!-- - Svelte -->
 
 ---
 

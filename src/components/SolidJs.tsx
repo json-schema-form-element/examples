@@ -18,12 +18,14 @@ const mySchema = {
 		},
 	},
 } as const satisfies JSONSchema7;
-type myData = FromSchema<typeof mySchema>;
+type MyData = FromSchema<typeof mySchema>;
 
 // -----------------------------------------------------------------------------
 
 export default function Solid() {
-	const [dataInSolid, setDataInSolid] = createSignal<myData>({});
+	const [dataInSolid, setDataInSolid] = createSignal<MyData>({
+		foo: 'hello',
+	});
 
 	return (
 		<article id="solid">
@@ -35,18 +37,14 @@ export default function Solid() {
 						'ui:widget': 'switch',
 					},
 				}}
-				prop:data={
-					{
-						foo: 'hello',
-					} satisfies myData
-				}
-				prop:onDataChange={(newData: myData) => {
-					console.log(newData);
+				prop:data={dataInSolid()}
+				prop:onDataChange={(newData: MyData) => {
+					console.log({ 'Data from Solid': newData });
 
-					setDataInSolid({ newData });
+					setDataInSolid(newData);
 				}}
-				prop:onFormSubmit={(newData: myData, valid) => {
-					console.log({ newData, valid });
+				prop:onFormSubmit={(newData: MyData, valid) => {
+					console.log({ 'Submitted!': newData, valid });
 				}}
 			></json-schema-form>
 

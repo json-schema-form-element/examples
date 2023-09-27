@@ -10,10 +10,16 @@ import solidJs from '@astrojs/solid-js';
 export default defineConfig({
 	integrations: [
 		//
-		vue(),
+		vue({
+			template: {
+				compilerOptions: {
+					isCustomElement: (tag) => ['json-schema-form'].includes(tag),
+				},
+			},
+		}),
 		lit(),
 		solidJs(),
-		svelte(),
-		react(),
+		// svelte(),
+		// react(),
 	],
 });

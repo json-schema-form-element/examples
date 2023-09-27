@@ -2,7 +2,7 @@
   "name": "@jsfe/examples",
   "private": true,
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -21,7 +21,7 @@
     "@types/react-dom": "^18.0.6",
     "@webcomponents/template-shadowroot": "^0.2.1",
     "astro": "^3.1.1",
-    "@jsfe/core": "0.0.1",
+    "@jsfe/core": "0.0.2",
     "lit": "^2.7.0",
     "react": "18.2",
     "react-dom": "18.2",
@@ -29,10 +29,14 @@
     "svelte": "^4.0.0",
     "vue": "^3.2.30"
   },
+  "// @jsfe/core": "../core",
   "devDependencies": {
     "prettier-plugin-astro": "^0.12.0"
   },
   "engines": {
     "node": "20"
+  },
+  "repository": {
+    "url": "https://github.com/json-schema-form-element/examples"
   }
 }

@@ -13,13 +13,16 @@ const mySchema = {
 		},
 	},
 } as const satisfies JSONSchema7;
-type myData = FromSchema<typeof mySchema>;
+type MyData = FromSchema<typeof mySchema>;
 
 // -----------------------------------------------------------------------------
 
 const astro = document.getElementById('astro')!;
 const form = astro.querySelector('json-schema-form')!;
 const debug = astro.querySelector('pre')!;
+function print(data: any) {
+	debug.innerText = JSON.stringify({ data }, null, 2);
+}
 
 form.schema = mySchema;
 
@@ -32,13 +35,15 @@ form.uiSchema = {
 
 form.data = {
 	foo: 'hello',
-} satisfies myData;
+} satisfies MyData;
 
-form.onDataChange = (newData: myData) => {
-	console.log({ 'Data from Astro': newData });
-	debug.innerText = JSON.stringify({ data: newData }, null, 2);
+print(form.data);
+
+form.onDataChange = (newData: MyData) => {
+	console.log({ 'Data from TypeScript': newData });
+	print(newData);
 };
 
-form.onFormSubmit = (newData: myData, valid) => {
+form.onFormSubmit = (newData: MyData, valid) => {
 	console.log({ 'Submitted!': newData, valid });
 };

@@ -17,11 +17,7 @@ const mySchema = {
 		},
 	},
 } as const satisfies JSONSchema7;
-type myData = FromSchema<typeof mySchema>;
-
-const myData = {
-	foo: 'hello',
-} satisfies myData;
+type MyData = FromSchema<typeof mySchema>;
 
 const uiSchema: UiSchema = {
 	bar: {
@@ -31,24 +27,28 @@ const uiSchema: UiSchema = {
 
 // -----------------------------------------------------------------------------
 
-const handleDataChange: Jsf['onDataChange'] = (newData: myData) => {
+const handleDataChange: Jsf['onDataChange'] = (newData: MyData) => {
 	console.log({ 'Data from Vue': newData });
 
-	dataInVue.data = newData;
+	dataInVue.value = newData;
 };
 
-const handleFormSubmit: Jsf['onFormSubmit'] = (newData: myData, valid) => {
+const handleFormSubmit: Jsf['onFormSubmit'] = (newData: MyData, valid) => {
 	console.log({ 'Submitted!': newData, valid });
 };
 
-let dataInVue = reactive({ data: {} });
+let dataInVue = reactive<MyData>({
+	value: {
+		foo: 'hello',
+	},
+});
 </script>
 
 <template>
 	<article id="vue">
 		<json-schema-form
 			.schema="mySchema"
-			.data="myData"
+			.data="dataInVue.value"
 			.onDataChange="handleDataChange"
 			.onFormSubmit="handleFormSubmit"
 			.uiSchema="uiSchema"
