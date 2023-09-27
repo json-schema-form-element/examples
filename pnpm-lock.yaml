@@ -21,8 +21,8 @@ dependencies:
     specifier: ^3.0.0
     version: 3.0.0(@babel/core@7.22.20)(astro@3.1.1)(vite@4.4.9)(vue@3.3.4)
   '@jsfe/core':
-    specifier: link:../core
-    version: link:../core
+    specifier: 0.0.2
+    version: 0.0.2(@types/react@18.2.22)
   '@shoelace-style/shoelace':
     specifier: ^2.8.0
     version: 2.8.0(@types/react@18.2.22)
@@ -1014,6 +1014,17 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
+    dev: false
+
+  /@jsfe/core@0.0.2(@types/react@18.2.22):
+    resolution: {integrity: sha512-Xs3qBbW4oQdnjWaFNkXTJiKHBytXJY2QZjaOtZjTT33OUEoSjlNsHUUHAXEi63Z6MPmDHVX4Fl1dYTpoYEQAUw==}
+    dependencies:
+      '@shoelace-style/shoelace': 2.8.0(@types/react@18.2.22)
+      deepmerge: 4.3.1
+      lit: 2.8.0
+      lodash-es: 4.17.21
+    transitivePeerDependencies:
+      - '@types/react'
     dev: false
 
   /@lit-labs/react@2.0.3(@types/react@18.2.22):
@@ -2581,6 +2592,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
+    dev: false
+
+  /lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: false
 
   /lodash.merge@4.6.2:
