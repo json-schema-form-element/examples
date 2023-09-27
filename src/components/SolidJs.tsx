@@ -2,36 +2,51 @@
 
 import { createSignal } from 'solid-js';
 
+// -----------------------------------------------------------------------------
+
 import '@jsfe/core';
+import type { FromSchema, JSONSchema7 } from '@jsfe/core';
+
+const mySchema = {
+	type: 'object',
+	properties: {
+		foo: {
+			type: 'string',
+		},
+		bar: {
+			type: 'boolean',
+		},
+	},
+} as const satisfies JSONSchema7;
+type myData = FromSchema<typeof mySchema>;
+
+// -----------------------------------------------------------------------------
 
 export default function Solid() {
-	const [dataInSolid, setDataInSolid] = createSignal({});
+	const [dataInSolid, setDataInSolid] = createSignal<myData>({});
 
 	return (
 		<article id="solid">
 			<json-schema-form
-				prop:schema={{
-					/* Type-casted as JSONSchema7 */
-					type: 'object',
-					properties: {
-						foo: {
-							type: 'string',
-						},
-						bar: {
-							type: 'boolean',
-						},
+				prop:schema={mySchema /* Type-casted as JSONSchema7 */}
+				prop:uiSchema={{
+					/* Type-casted as UiSchema */
+					bar: {
+						'ui:widget': 'switch',
 					},
 				}}
-				prop:data={{
-					foo: 'hello',
-				}}
-				prop:onDataChange={(data) => {
-					console.log(data);
+				prop:data={
+					{
+						foo: 'hello',
+					} satisfies myData
+				}
+				prop:onDataChange={(newData: myData) => {
+					console.log(newData);
 
-					setDataInSolid(data);
+					setDataInSolid({ newData });
 				}}
-				prop:onSubmit={(data) => {
-					console.log(data);
+				prop:onFormSubmit={(newData: myData, valid) => {
+					console.log({ newData, valid });
 				}}
 			></json-schema-form>
 

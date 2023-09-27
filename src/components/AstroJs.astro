@@ -1,0 +1,38 @@
+---
+import type { FromSchema, JSONSchema7, UiSchema } from '@jsfe/core';
+
+const mySchema = {
+	type: 'object',
+	properties: {
+		foo: {
+			type: 'string',
+		},
+		bar: {
+			type: 'boolean',
+		},
+	},
+} as const satisfies JSONSchema7;
+type myData = FromSchema<typeof mySchema>;
+---
+
+<article id="astro">
+	<!-- You can set settings upfront from SSR -->
+	<json-schema-form
+		schema={JSON.stringify(mySchema)}
+		uiSchema={{
+			bar: {
+				'ui:widget': 'switch',
+			},
+		} satisfies UiSchema}
+		data={{
+			foo: 'hello',
+		} satisfies myData}
+	>
+	</json-schema-form>
+
+	<pre id="debug">{JSON.stringify({ data: {} }, null, 2)}</pre>
+</article>
+
+<script>
+	import './TypeScriptOnly.js';
+</script>

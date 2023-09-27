@@ -1,7 +1,25 @@
 import { LitElement, html } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 
+// -----------------------------------------------------------------------------
+
 import '@jsfe/core';
+import type { FromSchema, JSONSchema7 } from '@jsfe/core';
+
+export const mySchema = {
+	type: 'object',
+	properties: {
+		foo: {
+			type: 'string',
+		},
+		bar: {
+			type: 'boolean',
+		},
+	},
+} as const satisfies JSONSchema7;
+export type myData = FromSchema<typeof mySchema>;
+
+// -----------------------------------------------------------------------------
 
 @customElement('lit-js')
 export default class LitJs extends LitElement {
@@ -10,25 +28,21 @@ export default class LitJs extends LitElement {
 	override render() {
 		return html`
 			<json-schema-form
-				.schema=${{
-					type: 'object',
-					properties: {
-						foo: {
-							type: 'string',
-						},
-						bar: {
-							type: 'boolean',
-						},
+				.schema=${mySchema /* Type-casted as JSONSchema7 */}
+				.uiSchema=${{
+					/* Type-casted as UiSchema */
+					bar: {
+						'ui:widget': 'switch',
 					},
-				} as const}
+				}}
 				.data=${{
 					foo: 'hello',
 				}}
-				.onSubmit=${(data, errors) => {
-					console.info(data, errors);
+				.onDataChange=${(newData: myData) => {
+					this._dataInLit = newData;
 				}}
-				.onDataChange=${(data) => {
-					this._dataInLit = data;
+				.onFormSubmit=${(newData: myData, valid: boolean) => {
+					console.info(newData, valid);
 				}}
 			></json-schema-form>
 

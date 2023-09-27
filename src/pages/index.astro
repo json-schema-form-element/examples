@@ -1,5 +1,5 @@
 ---
-import VanillaJs from '../components/VanillaJs.astro';
+import AstroJs from '../components/AstroJs.astro';
 import SolidJs from '../components/SolidJs.tsx';
 import VueJs from '../components/VueJs.vue';
 import LitJs from '../components/LitJs.ts';
@@ -15,13 +15,14 @@ import LitJs from '../components/LitJs.ts';
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
+
 	<body>
 		<h1>JSON Schema Form Element - Implementations</h1>
 
 		<main>
 			<section>
-				<h2>Vanilla JS</h2>
-				<VanillaJs />
+				<h2>Astro (SSR) + TypeScript only (Client)</h2>
+				<AstroJs />
 			</section>
 
 			<section>
