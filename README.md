@@ -1,9 +1,5 @@
 # 📝  JSON Schema Form Element - Examples
 
-Sandbox:
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/json-schema-form-element/examples)
-
 ## Quick start
 
 ```
@@ -15,9 +11,19 @@ npm i
 npm run dev
 ```
 
+---
+
+<div align="center">
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/json-schema-form-element/examples)
+
+</div>
+
+---
+
 ![Preview](https://ik.imagekit.io/jc0/jsfe/jsfe-examples_wDwd3aC4c.gif)
 
-[See all component implementations](./src/components) for:
+[See all components implementations](./src/components) for:
 
 - TypeScript (no UI framework)
 - Solid
