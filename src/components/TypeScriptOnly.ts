@@ -1,6 +1,7 @@
-// import '../../../core/lib/index.js';
 import '@jsfe/core';
 import type { FromSchema, JSONSchema7 } from '@jsfe/core';
+
+// -----------------------------------------------------------------------------
 
 const mySchema = {
 	type: 'object',
@@ -15,35 +16,51 @@ const mySchema = {
 } as const satisfies JSONSchema7;
 type MyData = FromSchema<typeof mySchema>;
 
-// -----------------------------------------------------------------------------
-
-const astro = document.getElementById('astro')!;
-const form = astro.querySelector('json-schema-form')!;
-const debug = astro.querySelector('pre')!;
-function print(data: any) {
-	debug.innerText = JSON.stringify({ data }, null, 2);
+function assertValidData(data: unknown): data is MyData {
+	// Use your AJV or other schema checker here, if you need thorough validation
+	// ...
+	return true;
 }
 
-form.schema = mySchema;
+class TypeScriptOnly extends HTMLElement {
+	#form = this.querySelector('json-schema-form')!;
 
-form.uiSchema = {
-	/* Type-casted as UiSchema */
-	bar: {
-		'ui:widget': 'switch',
-	},
-};
+	#debug = this.querySelector('pre')!;
 
-form.data = {
-	foo: 'hello',
-} satisfies MyData;
+	protected _print(data: unknown) {
+		this.#debug.innerText = JSON.stringify({ data }, null, 2);
+	}
 
-print(form.data);
+	connectedCallback() {
+		this.#form.schema = mySchema;
 
-form.onDataChange = (newData: MyData) => {
-	console.log({ 'Data from TypeScript': newData });
-	print(newData);
-};
+		this.#form.uiSchema = {
+			/* Type-casted as UiSchema */
+			bar: {
+				'ui:widget': 'switch',
+			},
+		};
 
-form.onFormSubmit = (newData: MyData, valid) => {
-	console.log({ 'Submitted!': newData, valid });
-};
+		this.#form.data = {
+			foo: 'hello',
+		} satisfies MyData;
+
+		this._print(this.#form.data);
+
+		this.#form.onDataChange = (newData) => {
+			console.log({ 'Data from TypeScript': newData });
+
+			if (assertValidData(newData)) this._print(newData);
+			else console.error('Invalid data!');
+		};
+		this.#form.onFormSubmit = (newData, valid) => {
+			console.log({ 'Submitted from TypeScript!': newData, valid });
+
+			if (assertValidData(newData)) {
+				// Do stuff...
+			}
+		};
+	}
+}
+
+customElements.define('type-script-only', TypeScriptOnly);

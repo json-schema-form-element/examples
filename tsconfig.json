@@ -1,14 +1,17 @@
 {
-	"extends": "astro/tsconfigs/strictest",
-	"compilerOptions": {
-		// "jsx": "react-jsx",
-		// "jsxImportSource": "react",
-		"jsx": "preserve",
-		"jsxImportSource": "solid-js",
+  "extends": "astro/tsconfigs/strictest",
+  "compilerOptions": {
+    // NOTE: fumbling with solid / react…
+    // "jsx": "react-jsx",
+    // "jsxImportSource": "react",
+    "jsx": "preserve",
+    // "jsxImportSource": "solid-js",
+    // "jsxImportSource": "preact",
+    "jsxImportSource": "auto",
 
-		// Lit
+    // Lit
 
-		"experimentalDecorators": true,
-		"useDefineForClassFields": false
-	}
+    "experimentalDecorators": true,
+    "useDefineForClassFields": false
+  }
 }

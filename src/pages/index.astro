@@ -1,10 +1,26 @@
 ---
 import AstroJs from '../components/AstroJs.astro';
-import SolidJs from '../components/SolidJs.tsx';
+import SolidJs from '../components/SolidJs.solid.tsx';
 import VueJs from '../components/VueJs.vue';
 import LitJs from '../components/LitJs.ts';
-// import ReactJs from '../components/ReactJs.tsx';
-// import SvelteJs from '../components/SvelteJs.tsx';
+import React18Js from '../components/ReactJs18.react.tsx';
+import SvelteJs from '../components/SvelteJs.svelte';
+import PreactJs from '../components/PreactJs.preact.tsx';
+
+const title = 'JSON Schema Form Element - Implementations';
+
+const frameworks = [
+	{
+		id: 'Astro',
+		title: 'Astro 3 (SSR) + TypeScript only (client DOM, no UI framework)',
+	},
+	{ id: 'Solid', title: 'Solid 1' },
+	{ id: 'Lit', title: 'Lit 2' },
+	{ id: 'Vue', title: 'Vue 3' },
+	{ id: 'React18', title: 'React 18' },
+	{ id: 'Svelte', title: 'Svelte 4' },
+	{ id: 'Preact', title: 'Preact 10' },
+] as const;
 ---
 
 <html lang="en" class="sl-theme-dark">
@@ -13,43 +29,52 @@ import LitJs from '../components/LitJs.ts';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{title}</title>
 	</head>
 
 	<body>
-		<h1>JSON Schema Form Element - Implementations</h1>
+		<h1>{title}</h1>
 
 		<main>
-			<section>
-				<h2>Astro (SSR) + TypeScript only (client, no UI framework)</h2>
-				<AstroJs />
-			</section>
+			<nav>
+				<em>Jump to:</em>
+				{
+					frameworks.map((framework) => (
+						<div>
+							<a href={`#${framework.id}`}>{framework.title}</a>
+						</div>
+					))
+				}
+			</nav>
+			{
+				frameworks.map(({ id, title }) => (
+					<section id={id}>
+						<h2>{title}</h2>
 
-			<section>
-				<h2>Solid</h2>
-				<SolidJs client:only="solid-js" />
-			</section>
-
-			<section>
-				<h2>Vue</h2>
-				<VueJs client:only="vue" />
-			</section>
-
-			<section>
-				<h2>Lit</h2>
-				<LitJs client:only="lit" />
-			</section>
-
-			<!-- TODO: -->
-			<!-- <section>
-				<h2>React</h2>
-				<ReactJs client:only="react" />
-			</section> -->
-
-			<!-- <section>
-				<h2>Svelte</h2>
-				<SvelteJs client:only="svelte" />
-			</section> -->
+						{() => {
+							// NOTE: client:only cannot be dynamic so this is needed…
+							switch (id) {
+								case 'Astro':
+									return <AstroJs />;
+								case 'Solid':
+									return <SolidJs client:only="solid-js" />;
+								case 'Lit':
+									return <LitJs client:only="lit" />;
+								case 'Vue':
+									return <VueJs client:only="vue" />;
+								case 'React18':
+									return <React18Js client:only="react" />;
+								case 'Svelte':
+									return <SvelteJs client:only="svelte" />;
+								case 'Preact':
+									return <PreactJs client:only="preact" />;
+								default:
+									return 'No framework found';
+							}
+						}}
+					</section>
+				))
+			}
 		</main>
 	</body>
 </html>
@@ -87,5 +112,7 @@ import LitJs from '../components/LitJs.ts';
 
 	section {
 		margin: 4rem;
+
+		border-bottom: 1px solid var(--sl-color-neutral-100);
 	}
 </style>

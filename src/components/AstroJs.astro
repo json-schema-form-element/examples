@@ -1,6 +1,8 @@
 ---
 import type { FromSchema, JSONSchema7, UiSchema } from '@jsfe/core';
 
+// -----------------------------------------------------------------------------
+
 const mySchema = {
 	type: 'object',
 	properties: {
@@ -14,30 +16,32 @@ const mySchema = {
 } as const satisfies JSONSchema7;
 type MyData = FromSchema<typeof mySchema>;
 
-const dataInAstro: MyData = {
-	foo: 'hello',
-};
-
 const uiSchema: UiSchema = {
 	bar: {
 		'ui:widget': 'switch',
 	},
 };
+
+const dataInAstro: MyData = {
+	foo: 'hello',
+};
 ---
 
 <article id="astro">
-	<!-- You can set settings upfront from SSR -->
-	<json-schema-form
-		schema={JSON.stringify(mySchema)}
-		uiSchema={JSON.stringify(uiSchema)}
-		data={dataInAstro}
-	>
-	</json-schema-form>
+	<type-script-only>
+		<!-- You can set settings upfront from SSR -->
+		<json-schema-form
+			schema={JSON.stringify(mySchema)}
+			uiSchema={JSON.stringify(uiSchema)}
+			data={dataInAstro}
+		>
+		</json-schema-form>
 
-	<pre id="debug">{JSON.stringify({ data: {} }, null, 2)}</pre>
+		<pre id="debug">{JSON.stringify({ data: {} }, null, 2)}</pre>
+	</type-script-only>
 </article>
 
 <script>
-	// Client only
+	// Client side
 	import './TypeScriptOnly.js';
 </script>

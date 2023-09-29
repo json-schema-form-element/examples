@@ -1,11 +1,13 @@
 /** @jsxImportSource solid-js */
+// NOTE: Best TypeScript Custom Element support so far.
+// (minor JSX namespace augmentation, but you only do it once for all CE).
 
 import { createSignal } from 'solid-js';
 
-// -----------------------------------------------------------------------------
-
 import '@jsfe/core';
 import type { FromSchema, JSONSchema7 } from '@jsfe/core';
+
+// -----------------------------------------------------------------------------
 
 const mySchema = {
 	type: 'object',
@@ -20,9 +22,13 @@ const mySchema = {
 } as const satisfies JSONSchema7;
 type MyData = FromSchema<typeof mySchema>;
 
-// -----------------------------------------------------------------------------
+function assertValidData(data: unknown): data is MyData {
+	// Use your AJV or other schema checker here, if you need thorough validation
+	// ...
+	return true;
+}
 
-export default function Solid() {
+export default function SolidJs() {
 	const [dataInSolid, setDataInSolid] = createSignal<MyData>({
 		foo: 'hello',
 	});
@@ -38,13 +44,17 @@ export default function Solid() {
 					},
 				}}
 				prop:data={dataInSolid()}
-				prop:onDataChange={(newData: MyData) => {
+				prop:onDataChange={(newData) => {
 					console.log({ 'Data from Solid': newData });
 
-					setDataInSolid(newData);
+					if (assertValidData(newData)) setDataInSolid(newData);
+					else console.error('Invalid data!');
 				}}
-				prop:onFormSubmit={(newData: MyData, valid) => {
-					console.log({ 'Submitted!': newData, valid });
+				prop:onFormSubmit={(newData, valid) => {
+					console.log({ 'Submitted from Solid!': newData, valid });
+					if (assertValidData(newData)) {
+						// Do stuff...
+					}
 				}}
 			></json-schema-form>
 

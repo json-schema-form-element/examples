@@ -2,7 +2,7 @@
   "name": "@jsfe/examples",
   "private": true,
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -12,10 +12,12 @@
   },
   "dependencies": {
     "@astrojs/lit": "^3.0.0",
+    "@astrojs/preact": "^3.0.0",
     "@astrojs/react": "^3.0.2",
     "@astrojs/solid-js": "^3.0.1",
     "@astrojs/svelte": "^4.0.2",
     "@astrojs/vue": "^3.0.0",
+    "@preact/signals": "^1.2.1",
     "@shoelace-style/shoelace": "^2.8.0",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
@@ -23,6 +25,7 @@
     "astro": "^3.1.1",
     "@jsfe/core": "0.0.3",
     "lit": "^2.7.0",
+    "preact": "^10.6.5",
     "react": "18.2",
     "react-dom": "18.2",
     "solid-js": "^1.4.3",
@@ -31,7 +34,9 @@
   },
   "// @jsfe/core": "../core",
   "devDependencies": {
-    "prettier-plugin-astro": "^0.12.0"
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "prettier-plugin-svelte": "^3.0.3"
   },
   "engines": {
     "node": "20"

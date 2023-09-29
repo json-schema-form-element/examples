@@ -1,10 +1,14 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
+// NOTE: Type checking / inference is not working declaratively,
+// there might be a way though,
+// like extending Vue Components namespace with HTMLTagNameMap.
 
-// -----------------------------------------------------------------------------
+import { reactive } from 'vue';
 
 import '@jsfe/core';
 import type { FromSchema, JSONSchema7, Jsf, UiSchema } from '@jsfe/core';
+
+// -----------------------------------------------------------------------------
 
 const mySchema = {
 	type: 'object',
@@ -19,22 +23,16 @@ const mySchema = {
 } as const satisfies JSONSchema7;
 type MyData = FromSchema<typeof mySchema>;
 
+function assertValidData(data: unknown): data is MyData {
+	// Use your AJV or other schema checker here, if you need thorough validation
+	// ...
+	return true;
+}
+
 const uiSchema: UiSchema = {
 	bar: {
 		'ui:widget': 'switch',
 	},
-};
-
-// -----------------------------------------------------------------------------
-
-const handleDataChange: Jsf['onDataChange'] = (newData: MyData) => {
-	console.log({ 'Data from Vue': newData });
-
-	dataInVue.value = newData;
-};
-
-const handleFormSubmit: Jsf['onFormSubmit'] = (newData: MyData, valid) => {
-	console.log({ 'Submitted!': newData, valid });
 };
 
 let dataInVue = reactive<MyData>({
@@ -42,6 +40,21 @@ let dataInVue = reactive<MyData>({
 		foo: 'hello',
 	},
 });
+
+const handleDataChange: Jsf['onDataChange'] = (newData) => {
+	console.log({ 'Data from Vue': newData });
+
+	if (assertValidData(newData)) dataInVue.value = newData;
+	else console.error('Invalid data!');
+};
+
+const handleFormSubmit: Jsf['onFormSubmit'] = (newData, valid) => {
+	console.log({ 'Submitted from Vue!': newData, valid });
+
+	if (assertValidData(newData)) {
+		// Do stuff...
+	}
+};
 </script>
 
 <template>

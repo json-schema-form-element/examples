@@ -1,10 +1,10 @@
 import { LitElement, html } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 
-// -----------------------------------------------------------------------------
-
 import '@jsfe/core';
 import type { FromSchema, JSONSchema7 } from '@jsfe/core';
+
+// -----------------------------------------------------------------------------
 
 export const mySchema = {
 	type: 'object',
@@ -19,7 +19,10 @@ export const mySchema = {
 } as const satisfies JSONSchema7;
 export type MyData = FromSchema<typeof mySchema>;
 
-// -----------------------------------------------------------------------------
+function assertValidData(data: unknown): data is MyData {
+	// Use your AJV or other schema checker here, if you need thorough validation
+	return true;
+}
 
 @customElement('lit-js')
 export default class LitJs extends LitElement {
@@ -38,12 +41,18 @@ export default class LitJs extends LitElement {
 					},
 				}}
 				.data=${this._dataInLit}
-				.onDataChange=${(newData: MyData) => {
-					this._dataInLit = newData;
+				.onDataChange=${(newData: unknown) => {
 					console.log({ 'Data from Lit': newData });
+
+					if (assertValidData(newData)) this._dataInLit = newData;
+					else console.error('Invalid data!');
 				}}
-				.onFormSubmit=${(newData: MyData, valid: boolean) => {
-					console.log({ 'Submitted!': newData, valid });
+				.onFormSubmit=${(newData: unknown, valid: boolean) => {
+					console.log({ 'Submitted from Lit!': newData, valid });
+
+					if (assertValidData(newData)) {
+						// Do stuff...
+					}
 				}}
 			></json-schema-form>
 

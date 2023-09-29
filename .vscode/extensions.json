@@ -1,8 +1,10 @@
 {
-	"recommendations": [
-		"astro-build.astro-vscode",
-		"runem.lit-plugin",
-		"vunguyentuan.vscode-css-variables"
-	],
-	"unwantedRecommendations": []
+  "recommendations": [
+    "astro-build.astro-vscode",
+    "runem.lit-plugin",
+    "vunguyentuan.vscode-css-variables",
+    "svelte.svelte-vscode",
+    "vue.volar"
+  ],
+  "unwantedRecommendations": []
 }
