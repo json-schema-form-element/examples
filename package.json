@@ -2,7 +2,7 @@
   "name": "@jsfe/examples",
   "private": true,
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -23,13 +23,13 @@
     "@types/react-dom": "^18.0.6",
     "@webcomponents/template-shadowroot": "^0.2.1",
     "astro": "^3.1.1",
-    "@jsfe/core": "0.0.3",
     "lit": "^2.7.0",
     "preact": "^10.6.5",
     "react": "18.2",
     "react-dom": "18.2",
     "solid-js": "^1.4.3",
     "svelte": "^4.0.0",
+    "@jsfe/core": "0.0.5",
     "vue": "^3.2.30"
   },
   "// @jsfe/core": "../core",

@@ -1,0 +1,11 @@
+{
+	"cssVariables.lookupFiles": [
+		"**/*.css",
+		"**/*.scss",
+		"**/*.sass",
+		"**/*.less",
+		"node_modules/@shoelace-style/shoelace/dist/themes/dark.css",
+		"node_modules/@shoelace-style/shoelace/dist/themes/light.css"
+	],
+	"markdown.extension.toc.levels": "2..6"
+}
