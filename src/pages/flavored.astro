@@ -1,0 +1,84 @@
+---
+import Layout from '../Layout.astro';
+
+// -----------------------------------------------------------------------------
+
+import type { FromSchema, JSONSchema7, UiSchema } from '@j_c/jsfe__form';
+
+const mySchema = {
+	type: 'object',
+	properties: {
+		foo: {
+			type: 'string',
+		},
+		bar: {
+			type: 'boolean',
+		},
+	},
+} as const satisfies JSONSchema7;
+type MyData = FromSchema<typeof mySchema>;
+
+const uiSchema: UiSchema = {
+	bar: {
+		'ui:widget': 'switch',
+	},
+};
+
+const dataInAstro: MyData = {
+	foo: 'hello',
+};
+
+// -----------------------------------------------------------------------------
+
+const themes = [
+	//
+	'shoelace',
+	'material',
+	'carbon',
+	'wired',
+	'system',
+];
+---
+
+<Layout>
+	<article id="astro">
+		{
+			themes.map((theme) => {
+				const FlavoredForm = `jsf-${theme}`;
+
+				return (
+					<section>
+						<header>
+							<h2>{theme}</h2>
+							<code>{`<jsf-${theme}></jsf-${theme}>`}</code>
+						</header>
+
+						<FlavoredForm
+							schema={JSON.stringify(mySchema)}
+							uiSchema={JSON.stringify(uiSchema)}
+							data={JSON.stringify(dataInAstro)}
+						/>
+					</section>
+				);
+			})
+		}
+	</article>
+</Layout>
+
+<script>
+	import '@j_c/jsfe__shoelace';
+	import '@j_c/jsfe__material';
+	import '@j_c/jsfe__carbon';
+	import '@j_c/jsfe__wired';
+	import '@j_c/jsfe__system';
+
+	import '../themes/material.js';
+</script>
+
+<style is:global>
+	@import '../themes/shoelace.scss';
+	@import '../themes/material.scss';
+	@import '../themes/carbon.scss';
+	@import '../themes/wired.scss';
+	@import '../themes/system.scss';
+</style>

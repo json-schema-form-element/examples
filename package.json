@@ -1,14 +1,17 @@
 {
   "name": "@jsfe/examples",
+  "version": "0.1.0",
   "private": true,
+  "repository": {
+    "url": "https://github.com/json-schema-form-element/examples"
+  },
   "type": "module",
-  "version": "0.0.5",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
+    "astro": "astro",
     "build": "astro build",
+    "dev": "astro dev",
     "preview": "astro preview",
-    "astro": "astro"
+    "start": "astro dev"
   },
   "dependencies": {
     "@astrojs/lit": "^3.0.0",
@@ -17,6 +20,15 @@
     "@astrojs/solid-js": "^3.0.1",
     "@astrojs/svelte": "^4.0.2",
     "@astrojs/vue": "^3.0.0",
+    "@carbon/styles": "^1.39.0",
+    "@j_c/jsfe__carbon": "link:../jsfe/packages/carbon",
+    "@j_c/jsfe__form": "link:../jsfe/packages/form",
+    "@j_c/jsfe__material": "link:../jsfe/packages/material",
+    "@j_c/jsfe__shoelace": "link:../jsfe/packages/shoelace",
+    "@j_c/jsfe__system": "link:../jsfe/packages/system",
+    "@j_c/jsfe__wired": "link:../jsfe/packages/wired",
+    "@jsfe/core": "0.0.5",
+    "@material/material-color-utilities": "^0.2.7",
     "@preact/signals": "^1.2.1",
     "@shoelace-style/shoelace": "^2.8.0",
     "@types/react": "^18.0.21",
@@ -29,19 +41,16 @@
     "react-dom": "18.2",
     "solid-js": "^1.4.3",
     "svelte": "^4.0.0",
-    "@jsfe/core": "0.0.5",
     "vue": "^3.2.30"
   },
-  "// @jsfe/core": "../core",
   "devDependencies": {
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
-    "prettier-plugin-svelte": "^3.0.3"
+    "prettier-plugin-svelte": "^3.0.3",
+    "sass": "^1.69.0"
   },
   "engines": {
     "node": "20"
   },
-  "repository": {
-    "url": "https://github.com/json-schema-form-element/examples"
-  }
+  "// @jsfe/core": "../core"
 }

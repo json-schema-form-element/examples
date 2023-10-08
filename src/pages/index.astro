@@ -1,4 +1,6 @@
 ---
+import Layout from '../Layout.astro';
+
 import AstroJs from '../components/AstroJs.astro';
 import SolidJs from '../components/SolidJs.solid.tsx';
 import VueJs from '../components/VueJs.vue';
@@ -6,8 +8,6 @@ import LitJs from '../components/LitJs.ts';
 import React18Js from '../components/ReactJs18.react.tsx';
 import SvelteJs from '../components/SvelteJs.svelte';
 import PreactJs from '../components/PreactJs.preact.tsx';
-
-const title = 'JSON Schema Form Element - Implementations';
 
 const frameworks = [
 	{ id: 'PureHTML', title: 'Pure HTML with CDN import maps' },
@@ -24,113 +24,58 @@ const frameworks = [
 ] as const;
 ---
 
-<html lang="en" class="sl-theme-dark">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-
-	<body>
-		<h1>{title}</h1>
-
-		<main>
-			<nav>
-				<em>Jump to:</em>
-				{
-					frameworks.map((framework) => (
-						<div>
-							<a href={`#${framework.id}`}>{framework.title}</a>
-						</div>
-					))
-				}
-			</nav>
-
+<Layout>
+	<main>
+		<nav>
+			<em>Jump to:</em>
 			{
-				frameworks.map(({ id, title }) => (
-					<section id={id}>
-						<h2>{title}</h2>
-
-						{() => {
-							// NOTE: client:only cannot be dynamic so this is needed…
-							switch (id) {
-								case 'PureHTML':
-									return (
-										<div>
-											This is a static HTML page (embedded in an iframe). Open{' '}
-											<a href="/pure-html.html">
-												<code>pure-html.html</code>
-											</a>{' '}
-											and see the source code.
-											<iframe src="pure-html.html" />
-										</div>
-									);
-								case 'Astro':
-									return <AstroJs />;
-								case 'Solid':
-									return <SolidJs client:only="solid-js" />;
-								case 'Lit':
-									return <LitJs client:only="lit" />;
-								case 'Vue':
-									return <VueJs client:only="vue" />;
-								case 'React18':
-									return <React18Js client:only="react" />;
-								case 'Svelte':
-									return <SvelteJs client:only="svelte" />;
-								case 'Preact':
-									return <PreactJs client:only="preact" />;
-								default:
-									return 'No framework found';
-							}
-						}}
-					</section>
+				frameworks.map((framework) => (
+					<div>
+						<a href={`#${framework.id}`}>{framework.title}</a>
+					</div>
 				))
 			}
-		</main>
-	</body>
-</html>
+		</nav>
 
-<style>
-	@import '@shoelace-style/shoelace/dist/themes/light.css';
-	@import '@shoelace-style/shoelace/dist/themes/dark.css';
+		{
+			frameworks.map(({ id, title }) => (
+				<section id={id}>
+					<h2>{title}</h2>
 
-	html {
-		box-sizing: border-box;
-	}
-
-	*,
-	*::before,
-	*::after {
-		box-sizing: inherit;
-		color-scheme: dark;
-	}
-
-	body {
-		font: 16px var(--sl-font-sans);
-		font-weight: var(--sl-font-weight-normal);
-		line-height: var(--sl-line-height-normal);
-		color: var(--sl-color-neutral-900);
-		background-color: var(--docs-background-color);
-		-moz-osx-font-smoothing: grayscale;
-		-webkit-font-smoothing: antialiased;
-
-		padding: 2rem;
-	}
-
-	h1 {
-		margin-bottom: 8rem;
-	}
-
-	section {
-		margin: 4rem;
-		border-bottom: 1px solid var(--sl-color-neutral-100);
-	}
-
-	iframe {
-		width: 100%;
-		height: 33rem;
-		border: 3px dashed var(--sl-color-neutral-100);
-	}
-</style>
+					{() => {
+						// NOTE: client:only cannot be dynamic so this is needed…
+						switch (id) {
+							case 'PureHTML':
+								return (
+									<div>
+										This is a static HTML page (embedded in an iframe). Open{' '}
+										<a href="/pure-html.html">
+											<code>pure-html.html</code>
+										</a>{' '}
+										and see the source code.
+										<iframe src="pure-html.html" />
+									</div>
+								);
+							case 'Astro':
+								return <AstroJs />;
+							case 'Solid':
+								return <SolidJs client:only="solid-js" />;
+							case 'Lit':
+								return <LitJs client:only="lit" />;
+							case 'Vue':
+								return <VueJs client:only="vue" />;
+							case 'React18':
+								return <React18Js client:only="react" />;
+							case 'Svelte':
+								return <SvelteJs client:only="svelte" />;
+							case 'Preact':
+								return <PreactJs client:only="preact" />;
+							default:
+								return 'No framework found';
+						}
+					}}
+				</section>
+			))
+		}
+	</main>
+</Layout>

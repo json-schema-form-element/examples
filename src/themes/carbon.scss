@@ -1,0 +1,18 @@
+// NOTE: Unwanted resets for example purpose (clashing)
+// @use '@carbon/styles/scss/reset';
+@use '@carbon/styles/scss/theme';
+@use '@carbon/styles/scss/themes';
+
+@import 'https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap';
+
+:root {
+	--cds-font-sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.cds-theme-light {
+	@include theme.theme(themes.$white);
+}
+
+.cds-theme-dark {
+	@include theme.theme(themes.$g100);
+}
