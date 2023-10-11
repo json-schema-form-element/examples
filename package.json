@@ -1,6 +1,6 @@
 {
   "name": "@jsfe/examples",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "repository": {
     "url": "https://github.com/json-schema-form-element/examples"
@@ -14,43 +14,41 @@
     "start": "astro dev"
   },
   "dependencies": {
-    "@astrojs/lit": "^3.0.0",
-    "@astrojs/preact": "^3.0.0",
-    "@astrojs/react": "^3.0.2",
-    "@astrojs/solid-js": "^3.0.1",
-    "@astrojs/svelte": "^4.0.2",
-    "@astrojs/vue": "^3.0.0",
+    "@astrojs/lit": "^3.0.1",
+    "@astrojs/preact": "^3.0.1",
+    "@astrojs/react": "^3.0.3",
+    "@astrojs/solid-js": "^3.0.2",
+    "@astrojs/svelte": "^4.0.3",
+    "@astrojs/vue": "^3.0.1",
     "@carbon/styles": "^1.39.0",
-    "@j_c/jsfe__carbon": "link:../jsfe/packages/carbon",
-    "@j_c/jsfe__form": "link:../jsfe/packages/form",
-    "@j_c/jsfe__material": "link:../jsfe/packages/material",
-    "@j_c/jsfe__shoelace": "link:../jsfe/packages/shoelace",
-    "@j_c/jsfe__system": "link:../jsfe/packages/system",
-    "@j_c/jsfe__wired": "link:../jsfe/packages/wired",
-    "@jsfe/core": "0.0.5",
+    "@jsfe/carbon": "0.1.0",
+    "@jsfe/material": "0.1.0",
+    "@jsfe/shoelace": "0.1.0",
+    "@jsfe/system": "0.1.0",
+    "@jsfe/wired": "0.1.0",
     "@material/material-color-utilities": "^0.2.7",
     "@preact/signals": "^1.2.1",
-    "@shoelace-style/shoelace": "^2.8.0",
-    "@types/react": "^18.0.21",
-    "@types/react-dom": "^18.0.6",
+    "@shoelace-style/shoelace": "^2.9.0",
+    "@types/react": "^18.2.27",
+    "@types/react-dom": "^18.2.12",
     "@webcomponents/template-shadowroot": "^0.2.1",
-    "astro": "^3.1.1",
-    "lit": "^2.7.0",
-    "preact": "^10.6.5",
-    "react": "18.2",
-    "react-dom": "18.2",
-    "solid-js": "^1.4.3",
-    "svelte": "^4.0.0",
-    "vue": "^3.2.30"
+    "astro": "^3.2.3",
+    "lit": "^2.8.0",
+    "preact": "^10.18.1",
+    "react": "~18.2.0",
+    "react-dom": "~18.2.0",
+    "solid-js": "^1.8.0",
+    "svelte": "^4.2.1",
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
     "prettier-plugin-svelte": "^3.0.3",
-    "sass": "^1.69.0"
+    "sass": "^1.69.1"
   },
   "engines": {
     "node": "20"
   },
-  "// @jsfe/core": "../core"
+  "// @jsfe/shoelace": "../core"
 }

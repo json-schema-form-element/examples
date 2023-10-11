@@ -2,8 +2,8 @@
 	// NOTE: We might use a more declarative approach by finding a good and
 	// simple way to add type safety to Svelte DOM elements namespace
 
-	import '@jsfe/core';
-	import type { FromSchema, JSONSchema7, Jsf } from '@jsfe/core';
+	import '@jsfe/shoelace';
+	import type { FromSchema, JSONSchema7, Jsf } from '@jsfe/shoelace';
 
 	// -----------------------------------------------------------------------------
 
@@ -39,7 +39,7 @@
 				'ui:widget': 'switch',
 			},
 		};
-		form.onDataChange = (newData) => {
+		form.dataChangeCallback = (newData) => {
 			console.log({ 'Data from Svelte': newData });
 
 			if (assertValidData(newData)) dataInSvelte = newData;
@@ -56,7 +56,7 @@
 </script>
 
 <article id="svelte">
-	<json-schema-form use:formBinding></json-schema-form>
+	<jsf-shoelace use:formBinding></jsf-shoelace>
 
 	<pre>{JSON.stringify(dataInSvelte, null, 2)}</pre>
 </article>

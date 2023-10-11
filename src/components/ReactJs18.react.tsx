@@ -6,8 +6,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 
-import '@jsfe/core';
-import type { FromSchema, JSONSchema7, Jsf } from '@jsfe/core';
+import '@jsfe/shoelace';
+import type { FromSchema, JSONSchema7, Jsf } from '@jsfe/shoelace';
 
 // -----------------------------------------------------------------------------
 
@@ -47,7 +47,7 @@ export default function ReactJs18() {
 				'ui:widget': 'switch',
 			},
 		};
-		form.onDataChange = (newData) => {
+		form.dataChangeCallback = (newData) => {
 			console.log({ 'Data from React 18': newData });
 
 			if (assertValidData(newData)) setDataInReact(newData);
@@ -64,7 +64,7 @@ export default function ReactJs18() {
 
 	return (
 		<article id="react">
-			<json-schema-form ref={formRef}></json-schema-form>
+			<jsf-shoelace ref={formRef}></jsf-shoelace>
 
 			<pre>{JSON.stringify({ data: dataInReact }, null, 2)}</pre>
 		</article>

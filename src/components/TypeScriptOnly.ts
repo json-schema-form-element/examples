@@ -1,5 +1,5 @@
-import '@jsfe/core';
-import type { FromSchema, JSONSchema7 } from '@jsfe/core';
+import '@jsfe/shoelace';
+import type { FromSchema, JSONSchema7 } from '@jsfe/shoelace';
 
 // -----------------------------------------------------------------------------
 
@@ -47,13 +47,13 @@ class TypeScriptOnly extends HTMLElement {
 
 		this._print(this.#form.data);
 
-		this.#form.onDataChange = (newData) => {
+		this.#form.dataChangeCallback = (newData) => {
 			console.log({ 'Data from TypeScript': newData });
 
 			if (assertValidData(newData)) this._print(newData);
 			else console.error('Invalid data!');
 		};
-		this.#form.onFormSubmit = (newData, valid) => {
+		this.#form.submitCallback = (newData, valid) => {
 			console.log({ 'Submitted from TypeScript!': newData, valid });
 
 			if (assertValidData(newData)) {

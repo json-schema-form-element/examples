@@ -3,7 +3,7 @@ import Layout from '../Layout.astro';
 
 // -----------------------------------------------------------------------------
 
-import type { FromSchema, JSONSchema7, UiSchema } from '@j_c/jsfe__form';
+import type { FromSchema, JSONSchema7, UiSchema } from '@jsfe/form';
 
 const mySchema = {
 	type: 'object',
@@ -44,7 +44,7 @@ const themes = [
 	<article id="astro">
 		{
 			themes.map((theme) => {
-				const FlavoredForm = `jsf-${theme}`;
+				const FlavoredFormTagName = `jsf-${theme}`;
 
 				return (
 					<section>
@@ -53,7 +53,7 @@ const themes = [
 							<code>{`<jsf-${theme}></jsf-${theme}>`}</code>
 						</header>
 
-						<FlavoredForm
+						<FlavoredFormTagName
 							schema={JSON.stringify(mySchema)}
 							uiSchema={JSON.stringify(uiSchema)}
 							data={JSON.stringify(dataInAstro)}
@@ -66,11 +66,11 @@ const themes = [
 </Layout>
 
 <script>
-	import '@j_c/jsfe__shoelace';
-	import '@j_c/jsfe__material';
-	import '@j_c/jsfe__carbon';
-	import '@j_c/jsfe__wired';
-	import '@j_c/jsfe__system';
+	import '@jsfe/shoelace';
+	import '@jsfe/material';
+	import '@jsfe/carbon';
+	import '@jsfe/wired';
+	import '@jsfe/system';
 
 	import '../themes/material.js';
 </script>

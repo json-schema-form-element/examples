@@ -28,6 +28,17 @@
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.9.0/cdn/themes/dark.css"
 		/>
+		<style>
+			body {
+				display: flex;
+				justify-content: center;
+			}
+
+			json-schema-form {
+				margin: 2rem;
+				width: calc(50rem + 5vw);
+			}
+		</style>
 	</head>
 
 	<body>
@@ -61,7 +72,7 @@
 
 			console.log(myForm);
 
-			myForm.onDataChange = (newData) => {
+			myForm.dataChangeCallback = (newData) => {
 				console.info(newData);
 			};
 			myForm.onFormSubmit = (newData, valid) => {
@@ -91,17 +102,5 @@
 				};
 			}, 3_000);
 		</script>
-
-		<style>
-			body {
-				display: flex;
-				justify-content: center;
-			}
-
-			json-schema-form {
-				margin: 2rem;
-				width: calc(50rem + 5vw);
-			}
-		</style>
 	</body>
 </html>

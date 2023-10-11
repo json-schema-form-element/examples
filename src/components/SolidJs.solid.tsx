@@ -4,8 +4,8 @@
 
 import { createSignal } from 'solid-js';
 
-import '@jsfe/core';
-import type { FromSchema, JSONSchema7 } from '@jsfe/core';
+import '@jsfe/shoelace';
+import type { FromSchema, JSONSchema7 } from '@jsfe/shoelace';
 
 // -----------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ export default function SolidJs() {
 
 	return (
 		<article id="solid">
-			<json-schema-form
+			<jsf-shoelace
 				prop:schema={mySchema /* Type-casted as JSONSchema7 */}
 				prop:uiSchema={{
 					/* Type-casted as UiSchema */
@@ -44,7 +44,7 @@ export default function SolidJs() {
 					},
 				}}
 				prop:data={dataInSolid()}
-				prop:onDataChange={(newData) => {
+				prop:dataChangeCallback={(newData) => {
 					console.log({ 'Data from Solid': newData });
 
 					if (assertValidData(newData)) setDataInSolid(newData);
@@ -56,7 +56,7 @@ export default function SolidJs() {
 						// Do stuff...
 					}
 				}}
-			></json-schema-form>
+			></jsf-shoelace>
 
 			<pre>{JSON.stringify({ data: dataInSolid() }, null, 2)}</pre>
 		</article>

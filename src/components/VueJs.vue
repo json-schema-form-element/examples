@@ -5,8 +5,8 @@
 
 import { reactive } from 'vue';
 
-import '@jsfe/core';
-import type { FromSchema, JSONSchema7, Jsf, UiSchema } from '@jsfe/core';
+import '@jsfe/shoelace';
+import type { FromSchema, JSONSchema7, UiSchema, Jsf } from '@jsfe/shoelace';
 
 // -----------------------------------------------------------------------------
 
@@ -41,14 +41,14 @@ let dataInVue = reactive<MyData>({
 	},
 });
 
-const handleDataChange: Jsf['onDataChange'] = (newData) => {
+const handleDataChange: Jsf['dataChangeCallback'] = (newData) => {
 	console.log({ 'Data from Vue': newData });
 
 	if (assertValidData(newData)) dataInVue.value = newData;
 	else console.error('Invalid data!');
 };
 
-const handleFormSubmit: Jsf['onFormSubmit'] = (newData, valid) => {
+const handleFormSubmit: Jsf['submitCallback'] = (newData, valid) => {
 	console.log({ 'Submitted from Vue!': newData, valid });
 
 	if (assertValidData(newData)) {
@@ -59,13 +59,13 @@ const handleFormSubmit: Jsf['onFormSubmit'] = (newData, valid) => {
 
 <template>
 	<article id="vue">
-		<json-schema-form
+		<jsf-shoelace
 			.schema="mySchema"
 			.data="dataInVue.value"
-			.onDataChange="handleDataChange"
+			.dataChangeCallback="handleDataChange"
 			.onFormSubmit="handleFormSubmit"
 			.uiSchema="uiSchema"
-		></json-schema-form>
+		></jsf-shoelace>
 
 		<pre>{{ JSON.stringify(dataInVue, null, 2) }}</pre>
 	</article>

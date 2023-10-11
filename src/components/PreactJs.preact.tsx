@@ -3,8 +3,8 @@
 
 import { useState, useRef, useEffect } from 'preact/hooks';
 
-import '@jsfe/core';
-import type { FromSchema, JSONSchema7, Jsf } from '@jsfe/core';
+import '@jsfe/shoelace';
+import type { FromSchema, JSONSchema7, Jsf } from '@jsfe/shoelace';
 
 // -----------------------------------------------------------------------------
 
@@ -44,7 +44,7 @@ export default function PreactJs() {
 				'ui:widget': 'switch',
 			},
 		};
-		form.onDataChange = (newData) => {
+		form.dataChangeCallback = (newData) => {
 			console.log({ 'Data from Preact': newData });
 
 			if (assertValidData(newData)) setDataInPreact(newData);
@@ -63,7 +63,7 @@ export default function PreactJs() {
 		<article id="preact">
 			{/* NOTE: does not exist on type 'JSX.IntrinsicElements' error.
 					Need to augment JSX namespace. React does not do this */}
-			<json-schema-form ref={formRef}></json-schema-form>
+			<jsf-shoelace ref={formRef}></jsf-shoelace>
 
 			<pre>{JSON.stringify({ data: dataInPreact }, null, 2)}</pre>
 		</article>

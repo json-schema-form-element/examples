@@ -1,5 +1,5 @@
 ---
-import type { FromSchema, JSONSchema7, UiSchema } from '@jsfe/core';
+import type { FromSchema, JSONSchema7, UiSchema } from '@jsfe/shoelace';
 
 // -----------------------------------------------------------------------------
 
@@ -30,12 +30,12 @@ const dataInAstro: MyData = {
 <article id="astro">
 	<type-script-only>
 		<!-- You can set settings upfront from SSR -->
-		<json-schema-form
+		<jsf-shoelace
 			schema={JSON.stringify(mySchema)}
 			uiSchema={JSON.stringify(uiSchema)}
 			data={JSON.stringify(dataInAstro)}
 		>
-		</json-schema-form>
+		</jsf-shoelace>
 
 		<pre id="debug">{JSON.stringify({ data: {} }, null, 2)}</pre>
 	</type-script-only>

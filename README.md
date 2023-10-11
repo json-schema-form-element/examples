@@ -34,9 +34,41 @@ npm run dev
 <!-- - React -->
 <!-- - Svelte -->
 
+### Try different releases tag
+
+`latest` | `next` (canary)
+
+```sh
+DIST_TAG=next ; \
+npm install \
+	@jsfe/carbon@$DIST_TAG \
+	@jsfe/material@$DIST_TAG \
+	@jsfe/shoelace@$DIST_TAG \
+	@jsfe/system@$DIST_TAG \
+	@jsfe/wired@$DIST_TAG
+```
+
+### Install for poly-repo - Local dev testbed
+
+Assuming:
+
+```sh
+├── examples
+└── jsfe
+```
+
+```sh
+pnpm install \
+	../jsfe/packages/carbon \
+	../jsfe/packages/material \
+	../jsfe/packages/shoelace \
+	../jsfe/packages/system \
+	../jsfe/packages/wired
+```
+
 ---
 
 ![](https://ik.imagekit.io/jc0/jsfe/design/header_json-schema-form-element_2RpVU_W-y-.png?updatedAt=1695289194993)
 
-- See the [documentation](https://github.com/json-schema-form-element/core#readme).
+- See the [documentation](https://github.com/json-schema-form-element/jsfe#readme).
 - See the [playground](https://github.com/json-schema-form-element/playground#readme).
