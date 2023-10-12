@@ -50,7 +50,7 @@ export default function SolidJs() {
 					if (assertValidData(newData)) setDataInSolid(newData);
 					else console.error('Invalid data!');
 				}}
-				prop:onFormSubmit={(newData, valid) => {
+				prop:submitCallback={(newData, valid) => {
 					console.log({ 'Submitted from Solid!': newData, valid });
 					if (assertValidData(newData)) {
 						// Do stuff...

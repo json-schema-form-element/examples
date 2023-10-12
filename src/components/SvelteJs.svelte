@@ -45,7 +45,7 @@
 			if (assertValidData(newData)) dataInSvelte = newData;
 			else console.error('Invalid data!');
 		};
-		form.onFormSubmit = (newData, valid) => {
+		form.submitCallback = (newData, valid) => {
 			console.log({ 'Submitted from Svelte!': newData, valid });
 
 			if (assertValidData(newData)) {

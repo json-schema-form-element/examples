@@ -47,7 +47,7 @@ export default class LitJs extends LitElement {
 					if (assertValidData(newData)) this._dataInLit = newData;
 					else console.error('Invalid data!');
 				}}
-				.onFormSubmit=${(newData: unknown, valid: boolean) => {
+				.submitCallback=${(newData: unknown, valid: boolean) => {
 					console.log({ 'Submitted from Lit!': newData, valid });
 
 					if (assertValidData(newData)) {

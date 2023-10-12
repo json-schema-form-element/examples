@@ -50,7 +50,7 @@ export default function PreactJs() {
 			if (assertValidData(newData)) setDataInPreact(newData);
 			else console.error('Invalid data!');
 		};
-		form.onFormSubmit = (newData, valid) => {
+		form.submitCallback = (newData, valid) => {
 			console.log({ 'Submitted from Preact!': newData, valid });
 
 			if (assertValidData(newData)) {

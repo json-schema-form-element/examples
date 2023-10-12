@@ -63,7 +63,7 @@ const handleFormSubmit: Jsf['submitCallback'] = (newData, valid) => {
 			.schema="mySchema"
 			.data="dataInVue.value"
 			.dataChangeCallback="handleDataChange"
-			.onFormSubmit="handleFormSubmit"
+			.submitCallback="handleFormSubmit"
 			.uiSchema="uiSchema"
 		></jsf-shoelace>
 
