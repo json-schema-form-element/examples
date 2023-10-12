@@ -23,7 +23,7 @@ function assertValidData(data: unknown): data is MyData {
 }
 
 class TypeScriptOnly extends HTMLElement {
-	#form = this.querySelector('json-schema-form')!;
+	#form = this.querySelector('jsf-shoelace')!;
 
 	#debug = this.querySelector('pre')!;
 

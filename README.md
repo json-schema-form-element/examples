@@ -40,7 +40,7 @@ npm run dev
 
 ```sh
 DIST_TAG=next ; \
-npm install \
+pnpm install \
 	@jsfe/carbon@$DIST_TAG \
 	@jsfe/material@$DIST_TAG \
 	@jsfe/shoelace@$DIST_TAG \

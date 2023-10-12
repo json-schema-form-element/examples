@@ -27,20 +27,20 @@ dependencies:
     specifier: ^1.39.0
     version: 1.39.0(sass@1.69.1)
   '@jsfe/carbon':
-    specifier: 0.1.0
-    version: 0.1.0(@carbon/styles@1.39.0)(@carbon/web-components@2.0.1)(lit@2.8.0)
+    specifier: 0.1.1
+    version: 0.1.1(@carbon/styles@1.39.0)(@carbon/web-components@2.0.1)(lit@2.8.0)
   '@jsfe/material':
-    specifier: 0.1.0
-    version: 0.1.0(@material/material-color-utilities@0.2.7)(@material/web@1.0.0)(lit@2.8.0)
+    specifier: 0.1.1
+    version: 0.1.1(@material/material-color-utilities@0.2.7)(@material/web@1.0.0)(lit@2.8.0)
   '@jsfe/shoelace':
-    specifier: 0.1.0
-    version: 0.1.0(@shoelace-style/shoelace@2.9.0)(lit@2.8.0)
+    specifier: 0.1.1
+    version: 0.1.1(@shoelace-style/shoelace@2.9.0)(lit@2.8.0)
   '@jsfe/system':
-    specifier: 0.1.0
-    version: 0.1.0(@carbon/styles@1.39.0)(@carbon/web-components@2.0.1)(lit@2.8.0)
+    specifier: 0.1.1
+    version: 0.1.1(@carbon/styles@1.39.0)(@carbon/web-components@2.0.1)(lit@2.8.0)
   '@jsfe/wired':
-    specifier: 0.1.0
-    version: 0.1.0(lit@2.8.0)(wired-elements@3.0.0-rc.6)
+    specifier: 0.1.1
+    version: 0.1.1(lit@2.8.0)(wired-elements@3.0.0-rc.6)
   '@material/material-color-utilities':
     specifier: ^0.2.7
     version: 0.2.7
@@ -1155,8 +1155,8 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@jsfe/carbon@0.1.0(@carbon/styles@1.39.0)(@carbon/web-components@2.0.1)(lit@2.8.0):
-    resolution: {integrity: sha512-l3gQOqLNPtbtM8A0LLzOnarJlNluWUWf40oTZHI61cVzr0xCicTU06cXX9k2lwGP12iIsjzXkFBETuEV1Dhf4A==}
+  /@jsfe/carbon@0.1.1(@carbon/styles@1.39.0)(@carbon/web-components@2.0.1)(lit@2.8.0):
+    resolution: {integrity: sha512-gQfMUubqSNbjtSxcgykjOV+ir8ivjpbViQfVldHiHPUaSl83CJ5TLlsbZaZ/d065ouY/0KfK2kcXS81dEKy9Zg==}
     peerDependencies:
       '@carbon/styles': ^1.39.0
       '@carbon/web-components': ^2.0.1
@@ -1164,49 +1164,49 @@ packages:
     dependencies:
       '@carbon/styles': 1.39.0(sass@1.69.1)
       '@carbon/web-components': 2.0.1(sass@1.69.1)
-      '@jsfe/form': 0.1.0(lit@2.8.0)
-      '@jsfe/types': 0.1.0(lit@2.8.0)
+      '@jsfe/form': 0.1.1(lit@2.8.0)
+      '@jsfe/types': 0.1.1(lit@2.8.0)
       lit: 2.8.0
     dev: false
 
-  /@jsfe/form@0.1.0(lit@2.8.0):
-    resolution: {integrity: sha512-UXbmRZBmTx+61B2vB1XB+MhAeGhO4fL2U+t1n4VaPBUDX1CR76k39xVCBosLTMuAWc8h24OG5Gx45pFgxWV+ew==}
+  /@jsfe/form@0.1.1(lit@2.8.0):
+    resolution: {integrity: sha512-OY2YyTCQ7+BSmD1GNrqgUYRvUDWvfaewXoC2vUIyVloPftuvVAo0w7KwPHt3kIt07ta2imTSRNl9BxvheKZGhg==}
     peerDependencies:
       lit: ^2.8.0
     dependencies:
-      '@jsfe/types': 0.1.0(lit@2.8.0)
+      '@jsfe/types': 0.1.1(lit@2.8.0)
       lit: 2.8.0
       lodash-es: 4.17.21
     dev: false
 
-  /@jsfe/material@0.1.0(@material/material-color-utilities@0.2.7)(@material/web@1.0.0)(lit@2.8.0):
-    resolution: {integrity: sha512-+hIvXJvXM3trsd1EM8DQIuVkfSpMFt1RuOeMtYzAyEleNhGgFmS4wzZjaSCihCkEeBF/f4ARpYAVhHVgdnWqtg==}
+  /@jsfe/material@0.1.1(@material/material-color-utilities@0.2.7)(@material/web@1.0.0)(lit@2.8.0):
+    resolution: {integrity: sha512-QS2TTsxZr8xKLCKon2C4c0Mjzs2CuU7x1wqzoyoUjO0k1wfhXtwYBIG2aYcREXX5u1yRevpHwcgIC/RkJ+7agw==}
     peerDependencies:
       '@material/material-color-utilities': ^0.2.7
       '@material/web': ^1.0.0
       lit: ^2.8.0
     dependencies:
-      '@jsfe/form': 0.1.0(lit@2.8.0)
-      '@jsfe/types': 0.1.0(lit@2.8.0)
+      '@jsfe/form': 0.1.1(lit@2.8.0)
+      '@jsfe/types': 0.1.1(lit@2.8.0)
       '@material/material-color-utilities': 0.2.7
       '@material/web': 1.0.0
       lit: 2.8.0
     dev: false
 
-  /@jsfe/shoelace@0.1.0(@shoelace-style/shoelace@2.9.0)(lit@2.8.0):
-    resolution: {integrity: sha512-bbpEAXon2Uf+roL58n3tPiFUr/CvtOqHui6QDsiTcOoKjN4g05wUM7XljnFHQ5Ct2EHEpLxLPBbr7VTTK6LRNA==}
+  /@jsfe/shoelace@0.1.1(@shoelace-style/shoelace@2.9.0)(lit@2.8.0):
+    resolution: {integrity: sha512-TnRyYlpVF9k3Cp9ZHYUr87eQ53OpodtzM4vpHQUrGn2LnSOjfIpr9NAfjatkn8Mf8R0sDIEHDE61Jb4Br+nJUA==}
     peerDependencies:
       '@shoelace-style/shoelace': ^2.8.0
       lit: ^2.8.0
     dependencies:
-      '@jsfe/form': 0.1.0(lit@2.8.0)
-      '@jsfe/types': 0.1.0(lit@2.8.0)
+      '@jsfe/form': 0.1.1(lit@2.8.0)
+      '@jsfe/types': 0.1.1(lit@2.8.0)
       '@shoelace-style/shoelace': 2.9.0(@types/react@18.2.27)
       lit: 2.8.0
     dev: false
 
-  /@jsfe/system@0.1.0(@carbon/styles@1.39.0)(@carbon/web-components@2.0.1)(lit@2.8.0):
-    resolution: {integrity: sha512-U2MmxBSflWL9HK27Y8YhOlBFHoYkuGC2BRs66SkJtAPjidszUyUDVVajleyqJPym4CRuQ2Tntf3UCRA0qMwJUw==}
+  /@jsfe/system@0.1.1(@carbon/styles@1.39.0)(@carbon/web-components@2.0.1)(lit@2.8.0):
+    resolution: {integrity: sha512-LwzaCS00gyMAeFi1k32+LL6ko/fiRieXYbucwVHk2lAQMAOu8e4D8Z9I+51dBF2XvkWUp3Z9n+wloYHhoCj3XQ==}
     peerDependencies:
       '@carbon/styles': ^1.39.0
       '@carbon/web-components': ^2.0.1
@@ -1214,13 +1214,13 @@ packages:
     dependencies:
       '@carbon/styles': 1.39.0(sass@1.69.1)
       '@carbon/web-components': 2.0.1(sass@1.69.1)
-      '@jsfe/form': 0.1.0(lit@2.8.0)
-      '@jsfe/types': 0.1.0(lit@2.8.0)
+      '@jsfe/form': 0.1.1(lit@2.8.0)
+      '@jsfe/types': 0.1.1(lit@2.8.0)
       lit: 2.8.0
     dev: false
 
-  /@jsfe/types@0.1.0(lit@2.8.0):
-    resolution: {integrity: sha512-eYybbcHr7qnzCzQRt+Jf0lAYvLaLt/jimeIwUc+ToZgoFho2s61JYgbN6cQ8zBhPfVeujsdZ10e607dIVHBw0g==}
+  /@jsfe/types@0.1.1(lit@2.8.0):
+    resolution: {integrity: sha512-KugUIDqzatdfqY5J/pmKbfg+kAJMmCL9GVEXlqzH8mjD3MWsnLvQ8kykAminNICDQe6s+j739xcxn/t/5N4DqA==}
     peerDependencies:
       lit: ^2.8.0
     dependencies:
@@ -1229,14 +1229,14 @@ packages:
       lit: 2.8.0
     dev: false
 
-  /@jsfe/wired@0.1.0(lit@2.8.0)(wired-elements@3.0.0-rc.6):
-    resolution: {integrity: sha512-iPbUdP95GlrvNRDZfw9e2+oqdYdt51OWFp/GMYaMF42zbO8RF7bNJ382t9MCxSNOhtKIMH3Mnj5J32sjB8WzIQ==}
+  /@jsfe/wired@0.1.1(lit@2.8.0)(wired-elements@3.0.0-rc.6):
+    resolution: {integrity: sha512-zCR4cuSL2J6B33RkVTkouoEy6/5Rm9jXJzYy2wjCyztKGj+Ux5JfdvkYu19EmNUBX7Bmnbz+5uWLmqSmGsnJxQ==}
     peerDependencies:
       lit: ^2.8.0
       wired-elements: 3.0.0-rc.6
     dependencies:
-      '@jsfe/form': 0.1.0(lit@2.8.0)
-      '@jsfe/types': 0.1.0(lit@2.8.0)
+      '@jsfe/form': 0.1.1(lit@2.8.0)
+      '@jsfe/types': 0.1.1(lit@2.8.0)
       lit: 2.8.0
       wired-elements: 3.0.0-rc.6
     dev: false
